@@ -1,5 +1,5 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-import { useMemo } from "react";
+// import { useMemo } from "react";
 import { Container } from "react-bootstrap";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { NewNote } from "./NewNote";
@@ -9,6 +9,7 @@ import { NoteList } from "./NoteList";
 import { NoteLayout } from "./NoteLayout";
 import { Note } from "./Note";
 import { EditNote } from "./EditNote";
+import { useEffect, useMemo, useState } from "react";
 
 export type Note = {
   id: string;
@@ -118,8 +119,26 @@ function App() {
     });
   }
 
+  const [theme, setTheme] = useState<"dark" | "light">(() => {
+    return (localStorage.getItem("theme") as "dark" | "light") || "dark";
+  });
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", theme);
+    localStorage.setItem("theme", theme);
+  }, [theme]);
+
+  const toggleTheme = () => {
+    setTheme((prev) => (prev === "dark" ? "light" : "dark"));
+  };
+
   return (
     <Container className="my-4">
+      <div style={{ textAlign: "right", marginBottom: "1rem" }}>
+        <button onClick={toggleTheme} className="btn btn-outline-secondary">
+          Switch to {theme === "dark" ? "Light" : "Dark"} Theme
+        </button>
+      </div>
       <Routes>
         <Route
           path="/"
