@@ -1,15 +1,15 @@
-import { Badge, Button, Col, Row, Stack } from "react-bootstrap"
-import { Link, useNavigate } from "react-router-dom"
-import { useNote } from "./NoteLayout"
-import ReactMarkdown from "react-markdown"
+import { Badge, Button, Col, Row, Stack } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import { useNote } from "./NoteLayout";
+import ReactMarkdown from "react-markdown";
 
 type NoteProps = {
-  onDelete: (id: string) => void
-}
+  onDelete: (id: string) => void;
+};
 
 export function Note({ onDelete }: NoteProps) {
-  const note = useNote()
-  const navigate = useNavigate()
+  const note = useNote();
+  const navigate = useNavigate();
 
   return (
     <>
@@ -18,8 +18,23 @@ export function Note({ onDelete }: NoteProps) {
           <h1>{note.title}</h1>
           {note.tags.length > 0 && (
             <Stack gap={1} direction="horizontal" className="flex-wrap">
-              {note.tags.map(tag => (
-                <Badge className="text-truncate" key={tag.id}>
+              {note.tags.map((tag) => (
+                // <Badge
+                //   className="text-truncate"
+                //   key={tag.id}
+                //   style={{ backgroundColor: tag.color, color: "#fff" }}
+                // >
+                //   {tag.label}
+                // </Badge>
+                <Badge
+                  className="text-truncate"
+                  key={tag.id}
+                  bg=""
+                  style={{
+                    backgroundColor: tag.color || "#6c757d", // Bootstrap's "secondary" gray
+                    color: "#fff",
+                  }}
+                >
                   {tag.label}
                 </Badge>
               ))}
@@ -31,7 +46,7 @@ export function Note({ onDelete }: NoteProps) {
             <Link to={`/${note.id}/edit`}>
               <Button variant="primary">Edit</Button>
             </Link>
-            <Button
+            {/* <Button
               onClick={() => {
                 onDelete(note.id)
                 navigate("/")
@@ -39,7 +54,22 @@ export function Note({ onDelete }: NoteProps) {
               variant="outline-danger"
             >
               Delete
+            </Button> */}
+
+            <Button
+              onClick={() => {
+                if (
+                  window.confirm("Are you sure you want to delete this note?")
+                ) {
+                  onDelete(note.id);
+                  navigate("/");
+                }
+              }}
+              variant="outline-danger"
+            >
+              Delete
             </Button>
+
             <Link to="/">
               <Button variant="outline-secondary">Back</Button>
             </Link>
@@ -48,5 +78,5 @@ export function Note({ onDelete }: NoteProps) {
       </Row>
       <ReactMarkdown>{note.markdown}</ReactMarkdown>
     </>
-  )
+  );
 }

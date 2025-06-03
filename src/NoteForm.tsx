@@ -1,15 +1,22 @@
-import { FormEvent, useRef, useState } from "react"
-import { Button, Col, Form, Row, Stack } from "react-bootstrap"
-import { Link, useNavigate } from "react-router-dom"
-import CreatableReactSelect from "react-select/creatable"
-import { NoteData, Tag } from "./App"
-import { v4 as uuidV4 } from "uuid"
+import { FormEvent, useRef, useState } from "react";
+import { Button, Col, Form, Row, Stack } from "react-bootstrap";
+import { Link, useNavigate } from "react-router-dom";
+import CreatableReactSelect from "react-select/creatable";
+import { NoteData, Tag } from "./App";
+import { v4 as uuidV4 } from "uuid";
+import { ActionMeta, MultiValue } from "react-select";
+
+type SelectOption = {
+  label: string;
+  value: string;
+  color?: string;
+};
 
 type NoteFormProps = {
-  onSubmit: (data: NoteData) => void
-  onAddTag: (tag: Tag) => void
-  availableTags: Tag[]
-} & Partial<NoteData>
+  onSubmit: (data: NoteData) => void;
+  onAddTag: (tag: Tag) => void;
+  availableTags: Tag[];
+} & Partial<NoteData>;
 
 export function NoteForm({
   onSubmit,
@@ -19,21 +26,21 @@ export function NoteForm({
   markdown = "",
   tags = [],
 }: NoteFormProps) {
-  const titleRef = useRef<HTMLInputElement>(null)
-  const markdownRef = useRef<HTMLTextAreaElement>(null)
-  const [selectedTags, setSelectedTags] = useState<Tag[]>(tags)
-  const navigate = useNavigate()
+  const titleRef = useRef<HTMLInputElement>(null);
+  const markdownRef = useRef<HTMLTextAreaElement>(null);
+  const [selectedTags, setSelectedTags] = useState<Tag[]>(tags);
+  const navigate = useNavigate();
 
   function handleSubmit(e: FormEvent) {
-    e.preventDefault()
+    e.preventDefault();
 
     onSubmit({
       title: titleRef.current!.value,
       markdown: markdownRef.current!.value,
       tags: selectedTags,
-    })
+    });
 
-    navigate("..")
+    navigate("..");
   }
 
   return (
@@ -50,23 +57,47 @@ export function NoteForm({
             <Form.Group controlId="tags">
               <Form.Label>Tags</Form.Label>
               <CreatableReactSelect
-                onCreateOption={label => {
-                  const newTag = { id: uuidV4(), label }
-                  onAddTag(newTag)
-                  setSelectedTags(prev => [...prev, newTag])
+                onCreateOption={(label) => {
+                  const randomColor = () =>
+                    "#" + Math.floor(Math.random() * 16777215).toString(16);
+                  const newTag = { id: uuidV4(), label, color: randomColor() };
+                  onAddTag(newTag);
+                  setSelectedTags((prev) => [...prev, newTag]);
                 }}
-                value={selectedTags.map(tag => {
-                  return { label: tag.label, value: tag.id }
+                value={selectedTags.map((tag) => {
+                  return { label: tag.label, value: tag.id, color: tag.color };
                 })}
-                options={availableTags.map(tag => {
-                  return { label: tag.label, value: tag.id }
+                options={availableTags.map((tag) => {
+                  return { label: tag.label, value: tag.id, color: tag.color };
                 })}
-                onChange={tags => {
+                onChange={(
+                  tags: MultiValue<SelectOption>,
+                  _actionMeta: ActionMeta<SelectOption>
+                ) => {
+                  const selected = tags || [];
                   setSelectedTags(
-                    tags.map(tag => {
-                      return { label: tag.label, id: tag.value }
+                    selected.map((tag) => {
+                      const found = availableTags.find(
+                        (t) => t.id === tag.value
+                      );
+
+                      if (found) {
+                        return {
+                          label: tag.label,
+                          id: tag.value,
+                          color: found.color,
+                        };
+                      }
+                      if ("color" in tag && tag.color) {
+                        return {
+                          label: tag.label,
+                          id: tag.value,
+                          color: tag.color,
+                        };
+                      }
+                      return { label: tag.label, id: tag.value, color: "#ccc" };
                     })
-                  )
+                  );
                 }}
                 isMulti
               />
@@ -95,5 +126,5 @@ export function NoteForm({
         </Stack>
       </Stack>
     </Form>
-  )
+  );
 }
