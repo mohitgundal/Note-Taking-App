@@ -92,11 +92,13 @@ Feel free to fork the repository, make improvements, and submit pull requests. I
 This project is licensed under the MIT License — see the LICENSE file for details.
 
 
-## 🙋‍♂️ Author
-- Made with ❤️ by Mohit Gundal
-- Portfolio: mohitbuilds.com
-- Instagram: @_mohitbuilds
-- LinkedIn: Mohit Gundal
+## 🙋‍♂️ Author## 🙋‍♂️ Author
+
+- **Name**: [Mohit Gundal](https://github.com/mohitgundal)
+- **Portfolio**: [mohitbuilds.com](https://mohitbuilds.com)
+- **Instagram**: [@_mohitbuilds](https://www.instagram.com/_mohitbuilds/)
+- **LinkedIn**: [Mohit Gundal](https://www.linkedin.com/in/mohitbuilds/)
+
 
 
 ## Thank you for checking out this project! 😊
