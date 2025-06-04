@@ -84,11 +84,11 @@ Follow these simple steps to get the Note Taking App running on your local machi
 └── vite.config.ts
 ```
 
-## Contribution
+## 🤝Contribution
 Feel free to fork the repository, make improvements, and submit pull requests. Issues and feature requests are also welcome!
 
 
-## License
+## 📄License
 This project is licensed under the MIT License — see the LICENSE file for details.
 
 
@@ -100,8 +100,12 @@ This project is licensed under the MIT License — see the LICENSE file for deta
 - **LinkedIn**: [Mohit Gundal](https://www.linkedin.com/in/mohitbuilds/)
 
 
+## 🌟 Support
 
-## Thank you for checking out this project! 😊
+If you like this project, don't forget to star ⭐ the repo and share it!
+
+
+## 🙏Thank you for checking out this project! 😊
 ---
 
 Would you like me to help you customize this further, for example, adding badges, or writing a shorter summary?
