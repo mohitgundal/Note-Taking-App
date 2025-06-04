@@ -92,7 +92,7 @@ Feel free to fork the repository, make improvements, and submit pull requests. I
 This project is licensed under the MIT License — see the LICENSE file for details.
 
 
-## 🙋‍♂️ Author## 🙋‍♂️ Author
+## 🙋‍♂️ Author
 
 - **Name**: [Mohit Gundal](https://github.com/mohitgundal)
 - **Portfolio**: [mohitbuilds.com](https://mohitbuilds.com)
