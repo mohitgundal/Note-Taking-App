@@ -84,11 +84,11 @@ export function NoteList({
         <Col xs="auto">
           <Stack gap={2} direction="horizontal">
             <Link to="/new">
-              <Button variant="primary">Create</Button>
+              <Button className="btn-theme">Create</Button>
             </Link>
             <Button
+              className="btn-theme"
               onClick={() => setEditTagsModalIsOpen(true)}
-              variant="outline-secondary"
             >
               Edit Tags
             </Button>

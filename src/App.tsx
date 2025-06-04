@@ -135,7 +135,8 @@ function App() {
   return (
     <Container className="my-4">
       <div style={{ textAlign: "right", marginBottom: "1rem" }}>
-        <button onClick={toggleTheme} className="btn btn-outline-secondary">
+        {/* <button onClick={toggleTheme} className="btn btn-outline-secondary"> */}
+        <button onClick={toggleTheme} className="btn btn-themed">
           Switch to {theme === "dark" ? "Light" : "Dark"} Theme
         </button>
       </div>
