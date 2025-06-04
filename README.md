@@ -93,10 +93,10 @@ This project is licensed under the MIT License — see the LICENSE file for deta
 
 
 ## 🙋‍♂️ Author
-Made with ❤️ by Mohit Gundal
-Portfolio: mohitbuilds.com
-Instagram: @_mohitbuilds
-LinkedIn: Mohit Gundal
+- Made with ❤️ by Mohit Gundal
+- Portfolio: mohitbuilds.com
+- Instagram: @_mohitbuilds
+- LinkedIn: Mohit Gundal
 
 
 ## Thank you for checking out this project! 😊
