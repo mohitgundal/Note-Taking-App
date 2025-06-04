@@ -35,7 +35,7 @@ Follow these simple steps to get the Note Taking App running on your local machi
 1.  **Clone the repository (or download the files):**
     If you're using Git, open your terminal or command prompt and run:
     ```bash
-    git clone https://github.com/mohitgundal/Quiz-App.git
+    git clone https://github.com/mohitgundal/Note-Taking-App.git
     ```
     
     Alternatively, you can just download the project files directly from GitHub as a ZIP archive.
@@ -43,7 +43,6 @@ Follow these simple steps to get the Note Taking App running on your local machi
 2.  **Navigate to the project directory:**
     If you cloned the repository, change into the project folder:
     ```bash
-    git clone https://github.com/mohitgundal/Note-Taking-App.git
     cd Quiz-App
     ```
 
