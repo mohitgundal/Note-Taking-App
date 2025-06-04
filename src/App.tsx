@@ -1,5 +1,4 @@
 import "bootstrap/dist/css/bootstrap.min.css";
-// import { useMemo } from "react";
 import { Container } from "react-bootstrap";
 import { Routes, Route, Navigate } from "react-router-dom";
 import { NewNote } from "./NewNote";
@@ -77,29 +76,13 @@ function App() {
     });
   }
 
-  // function addTag(tag: Tag) {
-  //   setTags((prev) => [...prev, tag]);
-  // }
-
   function addTag(tag: Tag) {
     setTags((prev) => {
       const updated = [...prev, tag];
-      console.log("Updated tags:", updated); // <-- Add this
+      console.log("Updated tags:", updated); 
       return updated;
     });
   }
-
-  // function updateTag(id: string, label: string) {
-  //   setTags(prevTags => {
-  //     return prevTags.map(tag => {
-  //       if (tag.id === id) {
-  //         return { ...tag, label }
-  //       } else {
-  //         return tag
-  //       }
-  //     })
-  //   })
-  // }
 
   function updateTag(id: string, label: string, color: string) {
     setTags((prevTags) => {
@@ -135,7 +118,6 @@ function App() {
   return (
     <Container className="my-4">
       <div style={{ textAlign: "right", marginBottom: "1rem" }}>
-        {/* <button onClick={toggleTheme} className="btn btn-outline-secondary"> */}
         <button onClick={toggleTheme} className="btn btn-themed">
           Switch to {theme === "dark" ? "Light" : "Dark"} Theme
         </button>

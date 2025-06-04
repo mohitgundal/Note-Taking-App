@@ -19,19 +19,12 @@ export function Note({ onDelete }: NoteProps) {
           {note.tags.length > 0 && (
             <Stack gap={1} direction="horizontal" className="flex-wrap">
               {note.tags.map((tag) => (
-                // <Badge
-                //   className="text-truncate"
-                //   key={tag.id}
-                //   style={{ backgroundColor: tag.color, color: "#fff" }}
-                // >
-                //   {tag.label}
-                // </Badge>
                 <Badge
                   className="text-truncate"
                   key={tag.id}
                   bg=""
                   style={{
-                    backgroundColor: tag.color || "#6c757d", // Bootstrap's "secondary" gray
+                    backgroundColor: tag.color || "#6c757d",
                     color: "#fff",
                   }}
                 >
@@ -46,16 +39,6 @@ export function Note({ onDelete }: NoteProps) {
             <Link to={`/${note.id}/edit`}>
               <Button variant="primary">Edit</Button>
             </Link>
-            {/* <Button
-              onClick={() => {
-                onDelete(note.id)
-                navigate("/")
-              }}
-              variant="outline-danger"
-            >
-              Delete
-            </Button> */}
-
             <Button
               onClick={() => {
                 if (

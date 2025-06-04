@@ -110,30 +110,6 @@ export function NoteList({
           <Col>
             <Form.Group controlId="tags">
               <Form.Label>Tags</Form.Label>
-              {/* <ReactSelect
-                value={selectedTags.map((tag) => {
-                  return { label: tag.label, value: tag.id, };
-                })}
-                options={availableTags.map((tag) => {
-                  return { label: tag.label, value: tag.id };
-                })}
-                onChange={(tags) => {
-                  setSelectedTags(
-                    tags.map((tag) => {
-                      const found = availableTags.find(
-                        (t) => t.id === tag.value
-                      );
-                      return {
-                        label: tag.label,
-                        id: tag.value,
-                        color: found?.color ?? "#ccc",
-                      };
-                    })
-                  );
-                }}
-                isMulti
-              /> */}
-
               <ReactSelect
                 value={selectedTags.map((tag) => ({
                   label: tag.label,
@@ -237,18 +213,12 @@ function NoteCard({ id, title, tags, searchTerm }: NoteCardProps) {
               className="justify-content-center flex-wrap"
             >
               {tags.map((tag) => (
-                // <Badge
-                //   key={tag.id}
-                //   style={{ backgroundColor: tag.color, color: "#fff" }}
-                // >
-                //   {tag.label}
-                // </Badge>
                 <Badge
                   className="text-truncate"
                   key={tag.id}
                   bg=""
                   style={{
-                    backgroundColor: tag.color || "#6c757d", // Bootstrap's "secondary" gray
+                    backgroundColor: tag.color || "#6c757d", 
                     color: "#fff",
                   }}
                 >
