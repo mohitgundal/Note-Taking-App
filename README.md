@@ -43,13 +43,18 @@ Follow these simple steps to get the Note Taking App running on your local machi
 2.  **Navigate to the project directory:**
     If you cloned the repository, change into the project folder:
     ```bash
-    cd Quiz-App
+    cd Note-Taking-App
     ```
 
-3.  **Open `index.html`:**
-    Locate the `index.html` file within the project directory and open it with your preferred web browser (e.g., Chrome, Firefox, Edge).
-    No local server setup is required as this is a front-end only application.
-   ---
+3.  **Install dependencies**
+     ```bash
+    npm install
+     ```
+
+4. **Run the app locally**
+    ```bash
+    npm run dev
+     ```
 
 ## 📁 Project Structure
 
@@ -87,8 +92,11 @@ Feel free to fork the repository, make improvements, and submit pull requests. I
 This project is licensed under the MIT License — see the LICENSE file for details.
 
 
-## Contact
-Created by Mohit Gundal. Feel free to reach out for suggestions or collaborations!
+## 🙋‍♂️ Author
+Made with ❤️ by Mohit Gundal
+Portfolio: mohitbuilds.com
+Instagram: @_mohitbuilds
+LinkedIn: Mohit Gundal
 
 
 ## Thank you for checking out this project! 😊
